@@ -1,8 +1,9 @@
 {
-  "name": "my-react-gh-pages",
+  "name": "razhouse",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://realnasser9229.github.io/RazHouse",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
