@@ -19,8 +19,8 @@ function App() {
         padding: '2rem',
         fontFamily: 'system-ui, sans-serif'
       }}>
-        <h1 style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>Novium Party Chat 🔥</h1>
-        <p style={{ fontSize: '1.3rem', marginBottom: '2rem' }}>Enter the party, nigga — name gon' show on messages</p>
+        <h1 style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>RazHouse Party Chat 🔥</h1>
+        <p style={{ fontSize: '1.3rem', marginBottom: '2rem' }}>Enter the party, bro — name gon' show on messages!</p>
         <input
           type="text"
           placeholder="Your party name (e.g. NasTheGod)"
@@ -84,8 +84,8 @@ function App() {
         textAlign: 'center',
         borderBottom: '2px solid #00ff9d'
       }}>
-        <h1 style={{ margin: 0, fontSize: '2.5rem' }}>Novium Party 🔥</h1>
-        <p style={{ margin: '0.5rem 0 0', color: '#00ff9d' }}>Ephemeral vibes — refresh and it's gone, nigga 😂</p>
+        <h1 style={{ margin: 0, fontSize: '2.5rem' }}>RazHouse</h1>
+        <p style={{ margin: '0.5rem 0 0', color: '#00ff9d' }}>Ephemeral vibes — refresh and it's gone, be careful!</p>
       </header>
 
       {/* Chat messages - scrollable */}
