@@ -1,11 +1,10 @@
 import { useState } from 'react';
 
 function App() {
-  const [messages, setMessages] = useState([]); // ephemeral AF — dies on refresh
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const [username, setUsername] = useState(''); // one-time name for the party
+  const [username, setUsername] = useState('');
 
-  // If no username yet, ask for one (party entry)
   if (!username) {
     return (
       <div style={{
@@ -20,13 +19,13 @@ function App() {
         fontFamily: 'system-ui, sans-serif'
       }}>
         <h1 style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>RazHouse Party Chat 🔥</h1>
-        <p style={{ fontSize: '1.3rem', marginBottom: '2rem' }}>Enter the party, bro — name gon' show on messages!</p>
+        <p style={{ fontSize: '1.3rem', marginBottom: '2rem' }}>Join the chaos, name shows on ya messages</p>
         <input
           type="text"
-          placeholder="Your party name (e.g. NasTheGod)"
+          placeholder="Your wild name (e.g. NasTheGod)"
           value={username}
-          onChange={(e) => setUsername(e.target.value.trim())}
-          onKeyDown={(e) => e.key === 'Enter' && username.trim() && setUsername(username.trim())}
+          onChange={(e) => setUsername(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Enter' && username.trim()) setUsername(username.trim()); }}
           style={{
             padding: '1rem',
             fontSize: '1.2rem',
@@ -39,7 +38,7 @@ function App() {
           }}
         />
         <button
-          onClick={() => username.trim() && setUsername(username.trim())}
+          onClick={() => { if (username.trim()) setUsername(username.trim()); }}
           style={{
             padding: '1rem 2rem',
             fontSize: '1.2rem',
@@ -50,7 +49,7 @@ function App() {
             cursor: 'pointer'
           }}
         >
-          Join the Party
+          Enter the Party
         </button>
       </div>
     );
@@ -62,7 +61,7 @@ function App() {
       id: Date.now(),
       text: input.trim(),
       user: username,
-      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute:'2-digit' })
     };
     setMessages(prev => [...prev, newMsg]);
     setInput('');
@@ -77,18 +76,16 @@ function App() {
       flexDirection: 'column',
       fontFamily: 'system-ui, sans-serif'
     }}>
-      {/* Header */}
       <header style={{
         background: '#111',
         padding: '1rem',
         textAlign: 'center',
         borderBottom: '2px solid #00ff9d'
       }}>
-        <h1 style={{ margin: 0, fontSize: '2.5rem' }}>RazHouse</h1>
-        <p style={{ margin: '0.5rem 0 0', color: '#00ff9d' }}>Ephemeral vibes — refresh and it's gone, be careful!</p>
+        <h1 style={{ margin: 0, fontSize: '2.5rem' }}>RazHouse Party 🔥</h1>
+        <p style={{ margin: '0.5rem 0 0', color: '#00ff9d' }}>Messages vanish on refresh/close – pure chaos 😂</p>
       </header>
 
-      {/* Chat messages - scrollable */}
       <div style={{
         flex: 1,
         padding: '1rem',
@@ -99,7 +96,7 @@ function App() {
       }}>
         {messages.length === 0 ? (
           <p style={{ textAlign: 'center', color: '#888', marginTop: '5rem' }}>
-            Party just started... drop the first message!
+            Party empty... hit 'em with the first message!
           </p>
         ) : (
           messages.map(msg => (
@@ -122,7 +119,6 @@ function App() {
         )}
       </div>
 
-      {/* Input area */}
       <footer style={{
         background: '#111',
         padding: '1rem',
@@ -134,8 +130,8 @@ function App() {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-          placeholder="Type your wild shit... (Enter to send)"
+          onKeyDown={(e) => { if (e.key === 'Enter') sendMessage(); }}
+          placeholder="Type ya wildest shit... (Enter to send)"
           style={{
             flex: 1,
             padding: '1rem',
