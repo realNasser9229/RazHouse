@@ -1,2 +1,5 @@
-# Novium
-Novium; is a Chromium-based browser built in React and Vite. So not just HTML.
+## Welcome to RazNas' party website;
+
+# Novium!
+
+RazNas (A.K.A me) will be hosting this website in weekends (or whenever I feel like to). Basically, this is a chatting website that lasts temporarily. Join or not.
